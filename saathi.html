@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CYBERSAARTHI - Your trusted guide for reporting cybercrime safely and simply." />
+  <meta name="keywords" content="CYBERSAARTHI, Cybercrime Help, Online Fraud, Report Scam, Digital Safety" />
+  <meta name="author" content="CyberSaarthi Team" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>CyberSaarthi | Report Cybercrime Safely</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #dbeafe, #f0f9ff);
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.cyber.gov.au/themes/custom/cyber_profile/images/homepage-hero.webp') center/cover no-repeat;
+      color: #ffffff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.25rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      margin-top: -40px;
+      backdrop-filter: blur(5px);
+    }
+
+    textarea, select {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 1rem;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    #botReply {
+      background-color: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      min-height: 60px;
+      margin-top: 1rem;
+      white-space: pre-wrap;
+      border-left: 6px solid #60a5fa;
+    }
+
+    h2, h3 {
+      margin-top: 2rem;
+      color: #0f172a;
+    }
+
+    footer {
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .trust-badge {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .trust-badge img {
+      width: 120px;
+    }
+
+    .example-select {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🤝 Welcome to CyberSaarthi</h1>
+    <p>Your trusted companion to report online fraud and cybercrime safely.</p>
+  </header>
+
+  <div class="container">
+    <p>CyberSaarthi is a free, secure, and easy-to-use platform helping victims of cybercrime to seek guidance and support, including scams, identity theft, and harassment.</p>
+
+    <div class="trust-badge">
+      <img src="https://img.icons8.com/color/96/security-checked--v1.png" alt="Trusted & Verified">
+      <p>Secure & Verified by Trusted Sources</p>
+    </div>
+
+    <h2>🛡 Ask About a Cybercrime</h2>
+    <label class="example-select" for="quickHelp">Need suggestions? Select an example:</label>
+    <select id="quickHelp" onchange="fillExample()">
+      <option value="">-- Select a sample question --</option>
+      <option value="I was scammed on UPI, what should I do?">UPI Scam</option>
+      <option value="Someone is harassing me on Instagram.">Social Media Harassment</option>
+      <option value="My bank account was hacked.">Bank Account Hacked</option>
+    </select>
+
+    <textarea id="userInput" rows="4" placeholder="e.g. I paid someone online and they disappeared. What should I do?"></textarea>
+    <button onclick="askBot()">Ask</button>
+
+    <div id="botReply">Your answer will appear here.</div>
+
+    <h3>📄 Download Your Cybercrime Report</h3>
+    <button onclick="generateReport()">Download PDF Report</button>
+  </div>
+
+  <footer>
+    <p>Need urgent help? Visit the official <a href="https://cybercrime.gov.in" target="_blank">Cybercrime Portal</a></p>
+    <p>&copy; 2025 CyberSaarthi | Your Privacy & Safety is Our Priority</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script>
+    function fillExample() {
+      const example = document.getElementById("quickHelp").value;
+      if (example) {
+        document.getElementById("userInput").value = example;
+      }
+    }
+
+    async function askBot() {
+      const input = document.getElementById("userInput").value;
+      const reply = document.getElementById("botReply");
+      if (!input.trim()) {
+        reply.textContent = "Please enter a question before asking.";
+        return;
+      }
+
+      reply.textContent = "Thinking...";
+      
+      setTimeout(() => {
+        reply.textContent = `Thanks for your question! Here's what you can do:\n\n- Save any proof or screenshot\n- Report it at https://cybercrime.gov.in\n- Block the scammer\n\nYou're not alone — we're here to help.`;
+      }, 1000);
+    }
+
+    function generateReport() {
+      const input = document.getElementById("userInput").value;
+      const reply = document.getElementById("botReply").textContent;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text("CyberSaarthi Cybercrime Report", 10, 20);
+      doc.setFontSize(12);
+      doc.text("Your Query:", 10, 40);
+      doc.text(input || "(No input provided)", 10, 50);
+      doc.text("Response:", 10, 70);
+      doc.text(reply || "(No response yet)", 10, 80);
+
+      doc.save("cybercrime-report.pdf");
+    }
+  </script>
+</body>
+
+</html>

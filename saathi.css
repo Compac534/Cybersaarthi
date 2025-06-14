@@ -1,0 +1,120 @@
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #e0f2fe, #ffffff);
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 2rem;
+  text-align: center;
+  background-image: url('https://www.cyber.gov.au/themes/custom/cyber_profile/images/homepage-hero.webp');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #ffffffd8;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: -30px;
+}
+
+textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #cbd5e0;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+#botReply {
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 8px;
+  min-height: 60px;
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  border-left: 5px solid #60a5fa;
+}
+
+h2, h3 {
+  margin-top: 2rem;
+  color: #1f2937;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #cbd5e0;
+}
+
+footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.trust-badge {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.trust-badge img {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.example-select {
+  font-weight: bold;
+}
